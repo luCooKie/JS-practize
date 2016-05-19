@@ -1,0 +1,64 @@
+/*reset*/
+* { margin: 0; padding: 0; } 
+*, *::before, *::after { box-sizing: border-box; }
+a { text-decoration: none; color: inherit; }
+ol, ul, li { list-style: none; } 
+html, body { height: 100%; } 
+.page { height: 100%; }
+/*nav*/
+div > nav { width: 100%; position: fixed; background: hsla(0, 0%, 0%, 0.5); z-index: 1;}
+div > nav > ol {text-align: center; }
+div > nav > ol > li { display: inline-block; }
+div > nav > ol > li > a { display: block; padding: 5px 10px; margin-top: 5px; margin-bottom: 5px; }
+div > nav > ol > li > a:hover { color: black; background: white; border-radius: 2px; }
+div > nav > ol > li.selected > a{ color: black; background: white; border-radius: 2px; }
+.page>nav>img{display:none; position: absolute; top: 5px; left:5px; }
+@media (max-width:900px) {
+    .page>nav>img{display: block;}
+    .page>nav>ol{display: none;}
+    .page>nav>ol>li{ display: list-item;}
+    .page>nav>ol>li>a{display: inline-block;}
+    .page>nav.open>ol{display: block;}
+}
+/*main*/
+div > main { height: 100%; }
+div > main > section { overflow: hidden;height: 100%; padding-top: 100px; background: #F3F3F3; box-shadow: inset 0 3px 3px hsla(0, 0%, 0%, 0.25); }
+
+/*main section1*/
+#abountMe > div { width: 600px; background: hsla(0, 100%, 100%, 0.25); margin: 0 auto; text-align: center; padding: 50px 0; }
+#abountMe { background: url(http://www.bz55.com/uploads/allimg/120623/1-120623122410.jpg) no-repeat center; background-size: cover; display: flex; flex-direction: column; justify-content: center; }
+@media (max-width: 900px) {
+    #abountMe>div{ width:auto; padding-left: 20px; padding-right:20px;}
+}
+main section2
+#skills { width: 100%; }
+#skills > div { text-align: center; }
+#skills > div > h1 { font-size: 40px;}
+#skills > div > ul { display: flex; width: 900px; margin: 70px auto 0;}
+#skills > div > ul > li { flex: 1; padding: 10px 20px; line-height: 1.8; border-left: 1px solid #e8e8e8; transition: all .5s; }
+#skills > div > ul > li:nth-child(2){ transition-delay: .2s; }
+#skills > div > ul > li:nth-child(3){ transition-delay: .4s; }
+#skills > div > ul > li:first-child{ border-left: none; }
+#skills.leave > div > ul > li{ transform: translateY(100px); }
+#skills.current > div > ul > li{ transform: translateY(0px); }
+#skills > div > ul > li > p { text-align: left; margin-top: 20px; }
+@media(max-width: 900px){
+    #skills{ padding-left: 20px; padding-right: 20px; height: auto;}
+    #skills>div>ul{ width:auto;display: block;}
+    #skills > div > ul > li{  border:0;}
+}
+/*main section3*/
+#contact > div { display: flex; margin: 0 auto; width: 900px;}
+#contact > div > h1 { flex: 1; font-size: 50px; transition: all 0.5s; }
+#contact > div > ul { flex: 2; padding-left: 100px; transition:all 0.5s;}
+#contact > div > ul > li { margin-bottom: 30px;}
+#contact img { vertical-align: middle; margin-right: 10px; }
+#contact.leave > div > h1{ transform: translateX(-100px); }
+#contact.current > div > h1{ transform: translateX(0px); }
+#contact.leave > div > ul { transform: translateX(100px); }
+#contact.current > div > ul { transform: translateX(0px); }
+@media(max-width: 900px){
+    #contact>div{width:auto;display: block; padding-left: 10px; padding-right: 10px;margin-top: 30px;}
+    #contact>div>h1{text-align: center;margin-bottom: 40px;}
+    #contact>div>ul{padding-left: 0; }
+}
