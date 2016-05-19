@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新手引导效果</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html{
+            height:100%;
+        }
+        body{
+            height:100%;
+            background: url(images/body.png) center top;
+        }
+        #mask{
+            height:100%;
+            width:100%;
+            background: black;
+            opacity: 0.5;
+            filter: alpha(opacity=50);
+            position: absolute;
+            left:0;
+            top:0;
+            display: none;
+        }
+        #searchTip{
+            width:980px;
+            height:800px;
+            margin:0 auto;
+            position: relative;
+            display: none;
+        }
+        #searchTip div{ position: absolute; display: none;}
+        #searchTip a{ position: absolute; width:90px; height:30px; }
+        #searchTip span{ position: absolute; width:25px; height:25px; }
+        #searchTip a,#searchTip span{cursor: pointer; text-indent: -999px;overflow: hidden; }
+        .stepA{
+            background: url(images/guide11.png);
+            width:745px;
+            height: 329px;
+            top:129px;
+            left:-9px;
+        }
+        .stepA span{ top: 145px; left: 685px; }
+        .stepA a{ top: 232px; left: 493px; }
+
+        .stepB {
+            background: url(images/guide21.png);
+            width:647px;
+            height: 405px;
+            top:3px;
+            left:324px;
+        }
+        .stepB span{ top: 199px; left: 335px; }
+        .stepB a{ top: 308px; left: 149px; }
+
+        .stepC{
+            background: url(images/guide31.png);
+            width:654px;
+            height: 257px;
+            top:294px;
+            left:319px;
+        }
+        .stepC span{ top: 46px; left: 591px; }
+        .stepC a{ top: 157px; left: 404px; }
+
+        .stepD{
+            background: url(images/guide41.png);
+            width:558px;
+            height: 348px;
+            top:80px;
+            left:162px;
+        }
+        .stepD span{ top: 138px; left: 495px; }
+        .stepD a{ top: 247px; left: 308px; }
+
+        .stepE{
+            background: url(images/guide51.png);
+            width:397px;
+            height: 342px;
+            top:79px;
+            left:257px;
+        }
+        .stepE a{ top: 247px; left: 155px; }
+    </style>
+</head>
+<body>
+    <div id="mask"></div>
+    <div id="searchTip">
+        <div class="stepA"><a>下一步</a><span title="关闭">关闭</span></div>
+        <div class="stepB"><a>下一步</a><span title="关闭">关闭</span></div>
+        <div class="stepC"><a>下一步</a><span title="关闭">关闭</span></div>
+        <div class="stepD"><a>下一步</a><span title="关闭">关闭</span></div>
+        <div class="stepE"><a>下一步</a></div>
+    </div>
+
+    <script>
+        window.onload = function () {
+            var oMask = document.getElementById("mask");
+            var oSearch = document.getElementById("searchTip");
+            var aStep = oSearch.getElementsByTagName("div");
+            var aA = oSearch.getElementsByTagName("a");
+            var aClose = oSearch.getElementsByTagName("span");
+            //read cookie
+            var res = document.cookie.substring(5);
+            alert(res);
+            //if no cookie,show this
+            if(res!="www.open.com.cn"){
+            	alert(res);
+            //mask searchTip stepA show
+            oMask.style.display = oSearch.style.display = aStep[0].style.display = "block";
+            //next step
+            for(var i = 0;i<aStep.length;i++){
+                aA[i].index  = i;
+                aA[i].onclick = function(){
+                    this.parentNode.style.display="none";
+                    if(this.index<aStep.length-1){
+                    	aStep[this.index + 1].style.display = "block";
+                    }
+                    else if (this.index==aStep.length-1) {
+                    	oMask.style.display = oSearch.style.display = "none";
+                    }
+                }
+            }
+            for(var i = 0;i<aClose.length;i++){
+            	aClose[i].onclick=function(){
+            		oMask.style.display = oSearch.style.display = "none";
+            	}
+            }
+            //add cookie
+            var oDate= new Date();
+            oDate.setDate(oDate.getDate()+30)
+            document.cookie="name=www.open.com.cn;expires="+oDate;
+            }
+            
+        }
+    </script>
+</body>
+</html>
