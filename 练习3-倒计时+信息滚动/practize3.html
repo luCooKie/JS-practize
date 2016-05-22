@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>倒计时+信息滚动</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .page {
+            height: 100%;
+            background: pink;
+            text-align: center;
+            padding: 100px;
+        }
+
+        .page > p {
+            font-size: 30px;
+            line-height: 70px;
+        }
+
+        .page > p:nth-child(3) {
+            margin-bottom: 30px;
+        }
+
+        span {
+            color: greenyellow;
+        }
+
+        marquee, .box {
+            border: 3px dashed greenyellow;
+            border-radius: 10px;
+            font-size: 18px;
+            line-height: 25px;
+            text-align: left;
+        }
+
+        marquee {
+            text-indent: 32px;
+        }
+
+        .box {
+            width: 770px;
+            height: 200px;
+            margin: 0 auto;
+            margin-top: 20px;
+            background: floralwhite;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <p>今天是 <span id="now-date"></span></p>
+    <p>距离2017年还有<span id="day"></span>天</p>
+    <p>倒计时:<span id="last-time"></span></p>
+    <marquee direction="up" width="770px" height="200px" bgcolor="floralwhite">
+        <p>
+            前端开发工程师是Web前端开发工程师的简称，是近五年才真正开始受到重视的一个新兴职业。Web前端开发技术是一个先易后难的过程，主要包括三个要素：HTML（标准通用标记语言下的一个应用）、级联样式表和JavaScript，这就要求前端开发工程师不仅要掌握基本的Web前端开发技术，网站性能优化、SEO和服务器端的基础知识，而且要学会运用各种工具进行辅助开发以及理论层面的知识，包括代码的可维护性、组件的易用性、分层语义模板和浏览器分级支持等。</p>
+    </marquee>
+    <div class="box">
+        <ul>
+            <li>1、精通Web前端技术，包括(X)HTML/CSS/JavaScript等，能够解决各种浏览器兼容性问题。</li>
+            <li>2、持续关注业界的新话题和新技术，研究过JQuery、Ext、YUI等框架中的一种或以上。</li>
+            <li>3、重视团队协作，愿意探寻和改进目前还不成熟的前端开发流程，了解各种常用工具。</li>
+            <li>4、热爱前端技术，个性乐观开朗，逻辑性强，善于和各种背景的人沟通合作。</li>
+            <li>5、如具备其他语言的开发经验，比如java或php或Actionscript3/Flex优先考虑。</li>
+            <li>6、负责网站应用前端开发，与后台工程师协作，完成数据交互、动态信息展现；</li>
+            <li>7、使用JS或AS编写封装良好的前端交互组件，维护及优化网站前端页面性能；</li>
+            <li>8、研究和探索创新的开发思路和最新的前端技术；</li>
+            <li>9、参与新人培训和前端技术布道；</li>
+        </ul>
+    </div>
+</div>
+<script>
+    window.onload = function () {
+        showTime();
+        showDay();
+        lastTime();
+        var time = 500;
+        setInterval(showTime, time);
+        setInterval(lastTime, time);
+        setTimeout(startMove, delay);
+    }
+    function checkTime(i) {
+        if (i < 10) {
+            i = "0" + i;
+        }
+        return i;
+    }
+    function showTime() {
+        var currentTime = new Date();
+        var year = currentTime.getFullYear();
+        var month = currentTime.getMonth() + 1;
+        var date = currentTime.getDate();
+        var day = currentTime.getDay();
+        var hour = currentTime.getHours();
+        var minutes = currentTime.getMinutes();
+        var seconds = currentTime.getSeconds();
+        minutes = checkTime(minutes);
+        seconds = checkTime(seconds);
+        var weekday = new Array(7);
+        weekday[1] = "星期一";
+        weekday[2] = "星期二";
+        weekday[3] = "星期三";
+        weekday[4] = "星期四";
+        weekday[5] = "星期五";
+        weekday[6] = "星期六";
+        weekday[0] = "星期日";
+        document.getElementById("now-date").innerHTML = year + "年" + month + "月" + date + "日" + weekday[day]
+                + hour + ":" + minutes + ":" + seconds;
+    }
+    function showDay() {
+        var currentTime = new Date();
+        var nextYear = new Date(2017, 0, 1);
+        var leftTime = nextYear.getTime() - currentTime.getTime();
+        var lastDay = Math.ceil(leftTime / (1000 * 24 * 60 * 60));
+        if (leftTime > 0) {
+            document.getElementById("day").textContent = lastDay;
+        }
+    }
+    function lastTime() {
+        var currentTime = new Date();
+        var nextYear = new Date(2017, 0, 1);
+        var leftTime = nextYear.getTime() - currentTime.getTime();
+        var t = parseInt(leftTime / 1000); //秒数
+        var d = parseInt(t / (24 * 60 * 60)); //天数
+        var h = parseInt(t / (60 * 60) % 24);//小时
+        var m = parseInt(t / 60 % 60);//分
+        var s = parseInt(t % 60);//秒
+        document.getElementById("last-time").innerHTML = d + "天" + h + "小时" + m + "分" + s + "秒";
+    }
+
+    var area = document.getElementsByClassName("box")[0];
+    var liHeight = 25;
+    var speed = 10;
+    var delay = 1500;
+    area.innerHTML += area.innerHTML;
+    area.scrollTop = 0;
+    var myScroll;
+    function startMove() {
+        area.scrollTop++;
+        myScroll = setInterval(scrollUp, speed);
+    }
+    function scrollUp() {
+        if (area.scrollTop % liHeight === 0) {
+            clearInterval(myScroll);
+            setTimeout(startMove, delay);
+        } else {
+            area.scrollTop++;
+            if (area.scrollTop >= area.scrollHeight / 2) {
+                area.scrollTop = 0;
+            }
+        }
+    }
+</script>
+</body>
+</html>
