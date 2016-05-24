@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>广告动画特效</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .content {
+            width: 960px;
+            height: 1500px;
+            background: pink;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 60px;
+        }
+        /*ad1*/
+        .ad1{
+            position: fixed;
+            bottom: 0;
+            right: 0;
+        }
+        .down-AD{
+            height:30px;
+            line-height: 30px;
+            background: lightgrey;
+            text-align: center;
+            position: relative;
+        }
+        .down-AD a{
+            position: absolute;
+            width:16px;
+            height:16px;
+            background: url(img/icon.jpg) no-repeat -96px -19px;
+            right: 8px;
+            top: 7px;
+        }
+        .down-AD a:hover{
+            background: url(img/icon.jpg) no-repeat -343px -19px;
+        }
+        /*ad2*/
+        .ad2{
+            width: 960px;
+            margin: 0 auto;
+            position: relative;
+            display: none;
+            overflow: hidden;
+        }
+        .ad2 img{
+            width:960px;
+        }
+        .ad2 span{
+            width: 14px;
+            height: 18px;
+            background: deepskyblue;
+            position: absolute;
+            font-size: 20px;
+            top: 0;
+            right:0;
+            display: none;
+            cursor: pointer;
+        }
+        /*ad3*/
+        .ad3{
+            position: absolute;
+            top:300px;
+            left:0;
+        }
+        .ad3 div ,.ad3 a{
+            float: left;
+        }
+        .ad3 a{
+            width:48px;
+            height:37px;
+            display: block;
+        }
+        .dbmove{
+            width:216px;
+            height: 37px;
+            background: url(img/1.png);
+            width: 0;
+        }
+        .ad3 .dbhide{
+            background: lightgreen;
+            text-align: center;
+            line-height: 37px;
+            color: white;
+            display: none;
+        }
+        .dbshow{
+            background: url(img/3.png);
+            border: 1px solid lightgreen;
+        }
+    </style>
+</head>
+<body>
+<div class="ad2">
+    <img class="max-ad" src="img/max-ad.png" alt="">
+    <img class="min-ad" src="img/min-ad.png" alt="">
+    <span>X</span>
+</div>
+<div class="content">页面内容</div>
+<div class="ad1">
+    <div class="down-AD">猜猜我有啥？
+        <a  href="javascript:void(0)" class="shutDown"></a>
+    </div>
+    <img src="img/snow.gif">
+</div>
+<div class="ad3">
+    <div class="dbmove"></div>
+    <a  href="javascript:void(0)" class="dbhide"><</a>
+    <a  href="javascript:void(0)" class="dbshow"></a>
+</div>
+<script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.js"></script>
+<script>
+    window.onload= function () {
+//        ad2
+        var $ = function (e) {
+            return document.getElementsByClassName(e)[0];
+        }
+        var snow = $("ad1").getElementsByTagName("img")[0];
+        $("shutDown").onclick = function () {
+            snow.style.display = "none";
+            $("shutDown").style.display = "none";
+        }
+        $("down-AD").onmouseover =function () {
+            snow.style.display = "block";
+            $("shutDown").style.display = "block";
+        }
+//        ad1
+        var span = document.getElementsByTagName("span")[0];
+        var step = 5;
+        var time = 1;
+        var delay = 2000;
+        var h = 0;
+        function adDown() {
+            if (h < $("max-ad").height) {
+                h += step;
+                setTimeout(adDown,time);
+            }else{
+                setTimeout(adUp,delay);
+            }
+            $("ad2").style.display = "block";
+            $("ad2").style.height = h + "px";
+        }
+        function adUp() {
+            $("ad2").style.height = h + "px";
+            if (h > $("min-ad").height) {
+                h -= step;
+                setTimeout(adUp,time);
+            }else{
+                $("max-ad").style.display = "none";
+                span.style.display = "block";
+            }
+        }
+        span.onclick = function () {
+            $("ad2").style.display = "none";
+        }
+        setTimeout(adDown,delay);
+    }
+    //        ad3
+    $(document).ready(function () {
+        $(".dbshow").click(function () {
+            $(this).hide();
+            $(".dbmove").animate({width:216},500,function () {
+               $(".dbhide").show();
+            })
+        })
+        $(".dbhide").click(function () {
+            $(this).hide();
+            $(".dbmove").animate({width:0},500,function () {
+                $(".dbshow").show();
+            })
+        })
+    })
+</script>
+</body>
+</html>
