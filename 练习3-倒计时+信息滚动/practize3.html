@@ -149,21 +149,31 @@
     area.innerHTML += area.innerHTML;
     area.scrollTop = 0;
     var myScroll;
+    // var myMove;
     function startMove() {
+        // clearInterval(myMove);
         area.scrollTop++;
         myScroll = setInterval(scrollUp, speed);
     }
     function scrollUp() {
         if (area.scrollTop % liHeight === 0) {
             clearInterval(myScroll);
-            setTimeout(startMove, delay);
+            myMove = setTimeout(startMove, delay);
         } else {
             area.scrollTop++;
             if (area.scrollTop >= area.scrollHeight / 2) {
                 area.scrollTop = 0;
             }
         }
+    // area.onmouseover = function(){
+    //     clearInterval(myScroll);
+    //     clearInterval(myMove);
+    // }
+    // area.onmouseout = function(){
+    //     startMove();
+    // }
     }
+
 </script>
 </body>
 </html>
