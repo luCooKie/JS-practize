@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单验证</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        form {
+            margin-top: 50px;
+            margin-left: 50px;
+        }
+
+        form > div:first-child span {
+            padding-left: 16px;
+        }
+
+        form > div:nth-child(2), form > div:nth-child(4) {
+            margin-left: 68px;
+        }
+
+        form > div:nth-child(1), form > div:nth-child(3), form > div:nth-child(5) {
+            line-height: 24px;
+        }
+
+        input {
+            width: 124px;
+            height: 20px;
+        }
+
+        input:disabled {
+            background: lightgrey;
+        }
+
+        form > div {
+            position: relative;
+        }
+
+        p {
+            position: absolute;
+            left: 200px;
+            top: 0;
+            color: grey;
+            font-size: 12px;
+        }
+
+        form > div:nth-child(4) {
+            width: 126px;
+            margin-bottom: 5px;
+        }
+
+        em {
+            padding: 0 15px;
+            background: orange;
+            color: white;
+            font-size: 12px;
+        }
+
+        em.active {
+            background: orangered;
+        }
+
+        em:nth-of-type(2), em:nth-of-type(3) {
+            border-left: 1px solid white;
+        }
+
+        /*icon*/
+        @font-face {
+            font-family: "iconfont";
+            src: url('//at.alicdn.com/t/font_1464600927_1076076.eot'); /* IE9*/
+            src: url('//at.alicdn.com/t/font_1464600927_1076076.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('data:application/x-font-woff;charset=utf-8;base64,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') format('woff'), /* chrome,firefox */ url('//at.alicdn.com/t/font_1464600927_1076076.ttf') format('truetype'), /* chrome,firefox,opera,Safari, Android, iOS 4.2+*/ url('//at.alicdn.com/t/font_1464600927_1076076.svg#iconfont') format('svg'); /* iOS 4.1- */
+            src: url('//at.alicdn.com/t/font_1464600927_1076076.eot')\0
+        ; /* ie8 fix */
+        }
+
+        .iconfont {
+            font-family: "iconfont" !important;
+            font-size: 16px;
+            font-style: normal;
+            -webkit-font-smoothing: antialiased;
+            -webkit-text-stroke-width: 0.2px;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .icon-false {
+            color: orangered;
+        }
+
+        .icon-tip {
+            color: darkgoldenrod;
+        }
+
+        .icon-OK {
+            color: green;
+        }
+
+        .icon-false:before {
+            content: "\e600";
+        }
+
+        .icon-OK:before {
+            content: "\e601";
+        }
+
+        .icon-tip:before {
+            content: "\e602";
+        }
+    </style>
+</head>
+<body>
+<form>
+    <div>
+        <label><span>会员名:</span><input class="text" type="text"></label>
+        <p class="msg"></p>
+    </div>
+    <div><label><span></span><b id="count" style="visibility: hidden; font-size: 12px;color:grey">0个字符</b></label></div>
+    <div>
+        <label><span>登录密码:</span><input class="text" type="password"></label>
+        <p class="msg"></p>
+    </div>
+    <div><label><span></span><em class="active">弱</em><em>中</em><em>强</em></label></div>
+    <div>
+        <label><span>确认密码:</span><input class="text" type="password" disabled></label>
+        <p class="msg" style="display: none"><i class="iconfont icon-tip"></i>请再输入一次</p>
+    </div>
+</form>
+<script src="表单验证.js"></script>
+</body>
+</html>
