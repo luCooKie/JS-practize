@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 1200px;
+            height: 3000px;
+            margin: 0 auto;
+            background: url(1.png);
+        }
+
+        a {
+            display: none;
+            width: 40px;
+            height: 40px;
+            position: fixed;
+            left: 50%;
+            bottom: 20px;
+            margin-left: 620px;
+            background: url(top.png) no-repeat 0 0;
+        }
+
+        a:hover {
+            background: url(top.png) no-repeat 0 -40px;
+        }
+    </style>
+</head>
+<body>
+<div></div>
+<a id="button" href="javascript:;"></a>
+<script src="回到顶部.js"></script>
+</body>
+</html>
