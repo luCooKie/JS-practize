@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>购物车</title>
+    <link rel="stylesheet" href="购物车.css">
+</head>
+<body>
+<table id="cartTable">
+    <thead>
+    <tr>
+        <th><label><input class="check-all check" type="checkbox"></label>&nbsp;全选</th>
+        <th>商品信息</th>
+        <th>单价(元)</th>
+        <th>数量</th>
+        <th>金额(元)</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td class="checkbox"><input class="check-one check" type="checkbox"></td>
+        <td class="goods">
+            <img src="https://img.alicdn.com/bao/uploaded/i4/TB1ah_5JFXXXXXYXpXXXXXXXXXX_!!0-item_pic.jpg_80x80.jpg">
+            <span>源自台湾 亚细亚田园综合果蔬干 萌鲜美容什锦水果脆片 新货</span>
+        </td>
+        <td class="price">11.80</td>
+        <td>
+            <span class="reduce"></span>
+            <input class="count-input" type="text" value="1">
+            <span class="add">+</span>
+        </td>
+        <td class="subtotal">11.8</td>
+        <td class="operation"><span class="delete">删除</span></td>
+    </tr>
+    <tr>
+        <td class="checkbox"><input class="check-one check" type="checkbox"></td>
+        <td class="goods">
+            <img src="https://img.alicdn.com/bao/uploaded/i3/48301728/TB28zp3ppXXXXbuXpXXXXXXXXXX_!!48301728.jpg_80x80.jpg">
+            <span>美国进口零食 培珀莉 非凡农庄布朗尼黑巧克力块软曲奇饼干</span>
+        </td>
+        <td class="price">24.00</td>
+        <td>
+            <span class="reduce"></span>
+            <input class="count-input" type="text" value="1">
+            <span class="add">+</span>
+        </td>
+        <td class="subtotal">24.00</td>
+        <td class="operation"><span class="delete">删除</span></td>
+    </tr>
+    <tr>
+        <td class="checkbox"><input class="check-one check" type="checkbox"></td>
+        <td class="goods">
+            <img src="https://img.alicdn.com/bao/uploaded/i3/196377353/TB2prKeoFXXXXacXXXXXXXXXXXX_!!196377353.jpg_80x80.jpg">
+            <span>广东高州荔枝新鲜水果 妃子笑 白糖罂 桂味 南山 糯米糍 顺丰包邮</span>
+        </td>
+        <td class="price">108.00</td>
+        <td>
+            <span class="reduce"></span>
+            <input class="count-input" type="text" value="1">
+            <span class="add">+</span>
+        </td>
+        <td class="subtotal">108.00</td>
+        <td class="operation"><span class="delete">删除</span></td>
+    </tr>
+    <tr>
+        <td class="checkbox"><input class="check-one check" type="checkbox"></td>
+        <td class="goods">
+            <img src="https://img.alicdn.com/bao/uploaded/i3/TB18pN3FVXXXXbSXpXXXXXXXXXX_!!0-item_pic.jpg_80x80.jpg">
+            <span>满2罐免邮泰国进口零食玛努/拉马努拉鲜虾片虾饼蟹饼食品100g</span>
+        </td>
+        <td class="price">15.50</td>
+        <td>
+            <span class="reduce"></span>
+            <input class="count-input" type="text" value="1">
+            <span class="add">+</span>
+        </td>
+        <td class="subtotal">15.50</td>
+        <td class="operation"><span class="delete">删除</span></td>
+    </tr>
+    </tbody>
+</table>
+
+<div class="foot" id="foot">
+    <label class="fl select-all"><input class="check-all check" type="checkbox">&nbsp;全选</label>
+    <a class="fl delete" id="delete-all" href="javascript:;">删除</a>
+    <div class="fr closing">结算</div>
+    <div class="fr total">合计(不含运费）:￥<span id="priceTotal">00.00</span></div>
+    <div class="fr selected" id="selected">已选商品
+        <span id="selectedTotal">0</span>件
+        <span class="arrow up">︽</span>
+        <span class="arrow down">︾</span>
+    </div>
+    <div class="selected-view">
+        <div id="selectedViewList" class="clearfix">
+            <!--<div><img src="images/1.jpg"><span>取消选择</span></div>-->
+        </div>
+        <span class="arrow"></span>
+    </div>
+</div>
+<script src="购物车.js"></script>
+</body>
+</html>

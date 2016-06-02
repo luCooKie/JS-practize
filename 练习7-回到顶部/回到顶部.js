@@ -13,6 +13,7 @@ window.onload = function () {
         if (!isTop) {
             clearInterval(timer);
         }
+        console.log(isTop)
         isTop = false;
     }
     button.onclick = function () {
