@@ -1,0 +1,68 @@
+body {
+    background: lightpink;
+}
+
+.container {
+    width: 780px;
+    height: 430px;
+    margin: 60px auto;
+    position: relative;
+}
+
+h1 {
+    text-align: center;
+    padding-top: 30px;
+}
+
+img {
+    width: 200px;
+    padding: 10px 10px 15px 10px;
+    border: 1px solid grey;
+    background: white;
+    position: absolute;
+    -webkit-transition: 0.3s;
+    box-shadow: 3px 3px 5px grey;
+    z-index: 1;
+}
+
+img:hover {
+    -webkit-transform: rotate(0deg) scale(1.2);
+    z-index: 2;
+}
+
+.pic1 {
+    left: 38px;
+    top: 0;
+    -webkit-transform: rotate(10deg);
+}
+
+.pic2 {
+    width: 300px;
+    left: 250px;
+    top: 30px;
+    -webkit-transform: rotate(-9deg);
+}
+
+.pic3 {
+    left: 550px;
+    bottom: 10px;
+    -webkit-transform: rotate(10deg);
+}
+
+.pic4 {
+    left: 10px;
+    bottom: 20px;
+    -webkit-transform: rotate(-19deg);
+}
+
+.pic5 {
+    left: 350px;
+    bottom: 10px;
+    -webkit-transform: rotate(10deg);
+}
+
+.pic6 {
+    left: 550px;
+    top: 0;
+    -webkit-transform: rotate(20deg);
+}
