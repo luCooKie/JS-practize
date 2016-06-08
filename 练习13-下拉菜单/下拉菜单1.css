@@ -1,0 +1,78 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/*nav*/
+.nav1 {
+    width: 500px;
+    height: 40px;
+    background: greenyellow;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+
+.nav1 > li {
+    float: left;
+}
+
+.nav1 > li a {
+    display: block;
+    width: 100px;
+    line-height: 40px;
+    text-align: center;
+}
+
+.nav1 ul li {
+    background: yellow;
+}
+
+.nav1 > li:first-child > a {
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.nav1 > li:last-child > a {
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.nav1 > li a:hover {
+    color: white;
+    background: linear-gradient(pink, deeppink);
+}
+
+.nav1 ul {
+    display: none;
+}
+
+.nav1 ul > li {
+    position: relative;
+}
+
+.nav1 ul > li > ul {
+    position: absolute;
+    left: 100px;
+    top: 0;
+}
+
+/*css完成下拉菜单*/
+/*.nav1>li:hover>ul{*/
+/*display: block;*/
+/*}*/
+/*.nav1>li:hover>ul ul{*/
+/*display: none;*/
+/*}*/
+/*.nav1 ul>li:hover>ul{*/
+/*display: block;*/
+/*}*/
+

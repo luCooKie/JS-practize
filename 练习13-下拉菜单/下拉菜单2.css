@@ -1,0 +1,47 @@
+.navlist {
+    position: absolute;
+    top: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: White;
+}
+
+.navlist a {
+    margin-left: 60px;
+    color: #666;
+}
+
+.expand {
+    height: 0;
+    background-color: #333d4d;
+    overflow: hidden;
+    position: relative;
+    top: 30px;
+    width: 100%;
+}
+
+.expdiv {
+    height: 130px;
+    width: 500%;
+}
+
+.expdiv-list {
+    width: 20%;
+    text-align: center;
+    float: left;
+    line-height: 110px;
+    color: White;
+}
+
+.expand .close-btn {
+    width: 120px;
+    height: 20px;
+    background: url(http://img.mukewang.com/5461ba3b0001ee3603840154.jpg) no-repeat -13px -117px;
+    position: absolute;
+    left: 50%;
+    bottom: -2px;
+    margin-left: -60px;
+    cursor: pointer;
+}
