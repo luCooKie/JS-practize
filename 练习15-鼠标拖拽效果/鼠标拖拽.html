@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>鼠标拖拽</title>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            background: url(src/background.png) no-repeat top center;
+        }
+
+        #drag {
+            width: 390px;
+            height: 450px;
+            position: absolute;
+            top: 100px;
+            left: 100px;
+            z-index: 9000;
+            display: none;
+        }
+
+        #drag-title {
+            height: 50px;
+            background: #f7f7f7;
+            line-height: 50px;
+            padding-left: 20px;
+            cursor: move;
+            position: relative;
+        }
+
+        #close-btn{
+            text-decoration: none;
+            font-size: 25px;
+            color: gray;
+            position: absolute;
+            right: 20px;
+            cursor: pointer;
+        }
+
+        a:hover {
+            color: blue;
+        }
+
+        #login-in{
+            position: absolute;
+            top: 10px;
+            right: 40px;
+            cursor: pointer;
+        }
+
+        #mask {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: black;
+            opacity: 0.3;
+            z-index: 8000;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<a id="login-in">登录</a>
+<div id="drag">
+    <div id="drag-title">
+        登录百度账号
+        <a id="close-btn">x</a>
+    </div>
+    <div>
+        <img src="src/load.png">
+    </div>
+</div>
+<div id="mask"></div>
+<script src="鼠标拖拽.js"></script>
+</body>
+</html>
