@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片放大缩小</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box1, #box2 {
+            position: absolute;
+        }
+
+        #box2 {
+            top: 615px;
+        }
+
+        #box1 div, #box2 div {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border-radius: 15px;
+            background: yellow;
+            line-height: 30px;
+            font-size: 30px;
+            text-align: center;
+            top: 50%;
+            margin-top: -15px;
+            cursor: pointer;
+        }
+
+        #box1 img + div, #box2 img + div {
+            left: 0;
+        }
+
+        #box1 div:last-child, #box2 div:last-child {
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="box1">
+    <img src="1.jpg">
+    <div>+</div>
+    <div>-</div>
+</div>
+<div id="box2">
+    <img src="2.jpg">
+    <div>+</div>
+    <div>-</div>
+</div>
+</body>
+<script src="图片放大缩小.js"></script>
+</html>
