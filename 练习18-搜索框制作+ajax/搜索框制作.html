@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>搜索框制作</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        body {
+            background: url("http://s.cn.bing.net/az/hprichbg/rb/KansasCropCircles_ZH-CN9416992875_1920x1080.jpg") no-repeat;
+        }
+
+        div {
+            position: absolute;
+            top: 100px;
+            left: 150px;
+        }
+
+        form {
+            background: white;
+            width: 545px;
+            height: 45px;
+            margin: 5px 0 0 10px;
+        }
+
+        img, form {
+            float: left;
+        }
+
+        input {
+            float: left;
+            border: 0;
+            outline: none;
+            font-size: 100%;
+        }
+
+        #btn-text {
+            width: 479px;
+            height: 40px;
+            padding: 2px 10px;
+            border-top: 1px solid lightgrey;
+            border-left: 1px solid lightgrey;
+        }
+
+        #btn-submit {
+            width: 45px;
+            height: 45px;
+            background: #0c8484 url(hpc18.png) no-repeat -160px -56px;
+            cursor: pointer;
+        }
+
+        #search-list {
+            display: none;
+        }
+
+        #search-list {
+            border: 1px solid lightgrey;
+            background: white;
+        }
+
+        #search-list li a {
+            display: block;
+            width: 533px;
+            height: 30px;
+            line-height: 30px;
+            padding: 0 5px;
+        }
+
+        #search-list li a:hover {
+            background: lightgrey;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <img class="logo" src="hp_zh_cn.png">
+    <form id="formbox">
+        <input id="btn-text" type="text">
+        <input id="btn-submit" type="submit" value="">
+    </form>
+</div>
+<ul id="search-list">
+    <li><a href="#">搜索选项1</a></li>
+    <li><a href="#">搜索选项2</a></li>
+</ul>
+</body>
+<script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.js"></script>
+<script src="搜索框制作.js"></script>
+</html>
