@@ -1,0 +1,134 @@
+body {
+    background: pink;
+}
+
+#sidebar {
+    position: fixed;
+    background: #e1e1e1;
+    width: 35px;
+    padding-top: 200px;
+    min-height: 100%;
+    z-index: 100;
+}
+
+.item {
+    font-size: 12px;
+    font-family: "Microsoft Yahei";
+    text-align: center;
+    margin-top: 5px;
+}
+
+#closeBar {
+    position: absolute;
+    bottom: 30px;
+    width: 35px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.nav-content {
+    position: fixed;
+    background: #fff;
+    border: 1px solid #000;
+    width: 200px;
+    min-height: 100%;
+    z-index: 99;
+    opacity: 0;
+}
+
+.nav-con-close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+}
+
+.sidebar-move-left {
+    animation: sml 1s 1 forwards;
+}
+
+.sidebar-move-right {
+    animation: smr 1s 1 forwards;
+}
+
+@keyframes sml {
+    from {
+    }
+    to {
+        transform: translateX(-120px);
+    }
+}
+
+@keyframes smr {
+    from {
+    }
+    to {
+        transform: translateX(120px);
+    }
+}
+
+.closeBar-move-right {
+    animation: cmr 1s 1 forwards;
+}
+
+.closeBar-move-left {
+    animation: cml 1s 1 forwards;
+}
+
+@keyframes cmr {
+    from {
+    }
+    to {
+        transform: translateX(160px) scale(1.3) rotate(405deg);
+    }
+}
+
+@keyframes cml {
+    from {
+    }
+    to {
+        transform: translateX(-160px) scale(1) rotate(-360deg);
+    }
+}
+
+.menuContent-move-right {
+    animation: mmr .5s 1 forwards;
+}
+
+.menuContent-move-left {
+    animation: mml .5s 1 forwards;
+}
+
+.menuContent-move-up {
+    animation: mmu .5s 1 forwards;
+}
+
+@keyframes mmr {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+        transform: translateX(120px);
+    }
+}
+
+@keyframes mml {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        transform: translateX(-120px);
+    }
+}
+
+@keyframes mmu {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+        transform: translateY(-250px);
+    }
+}
